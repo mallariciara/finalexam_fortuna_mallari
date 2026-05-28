@@ -27,17 +27,16 @@
                 <div class="row card-body col-12">
                   <div class="form-group col-12">
                     <label
-                        for="exampleInputEmail1">First Name
-                    </label>
+                        for="exampleInputEmail1">First Name</label>
                         <input type="text" class="form-control g-2" id="fname" name="fname" placeholder="Enter your Firstname" require value="{{ $employees->fname}}">
                   </div>                  
                 <div class="form-group col-12">
-                  <label for="exampleInputPassword1">Last Name</label>
+                  <label for="exampleInputPassword1">Middle Name</label>
                   <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your Last Name"
                   value="{{ $employees->lname}}">
                 </div>
                 <div class="form-group col-12">
-                    <label for="exampleInputFile">Middle Name</label>
+                    <label for="exampleInputFile">Last Name</label>
                   <input type="text" class="form-control" id="midname" name="midname" placeholder="Enter your Middle Name"
                   value="{{ $employees->midname}}">
                 </div>
@@ -46,11 +45,11 @@
                   <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address" value="{{ $employees->address}}">
                 </div>
                 <div class="form-group col-6">
-                  <label for="exampleInputPassword1">Zip</label>
+                  <label for="exampleInputPassword1">Date of Birth</label>
                   <input type="number" class="form-control" id="zip" name="zip" placeholder="" value="{{ $employees->zip}}">
                 </div>
                 <div class="form-group col-6">
-                  <label for="exampleInputPassword1">Age</label>
+                  <label for="exampleInputPassword1">Contact No</label>
                   <input type="number" class="form-control" id="age" name="age" placeholder="" value="{{ $employees->age}}">
                 </div>
                 <div class="form-group col-6">
