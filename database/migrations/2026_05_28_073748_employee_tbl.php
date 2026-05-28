@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create ('employee_tbl', function (Blueprint $table){
-            $table = id();
-            $table = string('fname');
-            $table = string('mname');
-            $table = string('lname');
-            $table = string('address');
-            $table = date('dob');
-            $table = integer('contact');
-        }
-        );
+        Schema::create('employee_tbl', function (Blueprint $table) {
+            $table->id();
+            $table->string('fname');
+            $table->string('mname');
+            $table->string('lname');
+            $table->string('address');
+            $table->date('dob');
+            $table->string('contact');
+            $table->timestamps();
+        });
     }
 
     /**
