@@ -16,11 +16,14 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <a href="#" class="btn btn-info">Add New Employee</a> <br> <br>
+            <a href="{{ route('employee.create') }}" class="btn btn-info">Add New Employee</a> <br> <br>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body p-0">
+                                @if(session('success'))
+                                    <div class="alert alert-success m-3">{{ session('success') }}</div>
+                                @endif
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -30,22 +33,30 @@
                                             <th>Middle Name</th>
                                             <th>Address</th>
                                             <th>Date of Birth</th>
+                                            <th>Contact</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody  >
+                                    <tbody>
+                                        @foreach ($employee as $items)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td> 
-                                                <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-md active" role="button" aria-pressed="true">Delete</a>
+                                            <td>{{ $items->id }}</td>
+                                            <td>{{ $items->fname }}</td>
+                                            <td>{{ $items->mname }}</td>
+                                            <td>{{ $items->lname }}</td>
+                                            <td>{{ $items->address }}</td>
+                                            <td>{{ $items->dob }}</td>
+                                            <td>{{ $items->contact }}</td>
+                                            <td>
+                                                <a href="{{ route('employee.edit', $items->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                                <form action="{{ route('employee.destroy', $items->id) }}" method="POST" style="display:inline-block; margin-left: 5px;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this employee?')">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
